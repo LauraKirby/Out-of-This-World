@@ -27,6 +27,14 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.imageView = [[UIImageView alloc]initWithImage:self.spaceObject.spaceImage];
+    self.scrollView.contentSize = self.imageView.frame.size;
+    [self.scrollView addSubview:self.imageView];
+    self.scrollView.delegate = self;
+    // setting scrollView to self will allow the application to use the (UIView *) method below
+    
+    self.scrollView.maximumZoomScale = 2.0;
+    self.scrollView.minimumZoomScale = 0.5; 
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,5 +53,10 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return self.imageView;
+}
 
 @end

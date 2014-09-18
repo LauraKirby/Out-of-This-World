@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OWOutterTableViewController : UITableViewController
+@interface OWOutterTableViewController : UITableViewController <UIScrollViewDelegate>
+
+
+@property (strong, nonatomic) NSMutableArray *planets; 
 
 @end
